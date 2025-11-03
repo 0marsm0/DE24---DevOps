@@ -38,18 +38,18 @@ jobs:
     steps:
       - name: Give the answer
         run: |
-          echo Let's go
-          echo 5
+          echo "Let's go!"
+          echo "5"
           sleep 1
-          echo 4
+          echo "4"
           sleep 1
-          echo 3
+          echo "3"
           sleep 1
-          echo 2
+          echo "2"
           sleep 1
-          echo 1
+          echo "1"
           sleep 1
-          echo Time is up
+          echo "Time is up"
           sleep 1
           if [ -n "$PASSWORD" ]; then
             echo "The answer is $(($NUM_1 * $NUM_2))"
