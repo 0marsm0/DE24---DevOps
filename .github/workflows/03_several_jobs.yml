@@ -1,6 +1,10 @@
 name: several_jobs
 
 on:
+  ### alternative
+  # schedule:
+  #   - cron: '@hourly'
+    
   workflow_dispatch:
 
 env:
@@ -21,7 +25,7 @@ jobs:
         run: |
           echo "I have a question for you."
           echo "What is the product of $NUM_1 and $NUM_2?"
-          echo "You have only 10 seconds to give the answer."
+          echo "You have only 5 seconds to give the answer."
           echo "Ready"
           echo "Set"
           echo "Go"
@@ -34,6 +38,19 @@ jobs:
     steps:
       - name: Give the answer
         run: |
+          echo Let's go
+          echo 5
+          sleep 1
+          echo 4
+          sleep 1
+          echo 3
+          sleep 1
+          echo 2
+          sleep 1
+          echo 1
+          sleep 1
+          echo Time is up
+          sleep 1
           if [ -n "$PASSWORD" ]; then
             echo "The answer is $(($NUM_1 * $NUM_2))"
           else
