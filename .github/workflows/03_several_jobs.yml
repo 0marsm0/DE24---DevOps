@@ -1,0 +1,41 @@
+name: several_jobs
+
+on:
+  workflow_dispatch:
+
+env:
+  NUM_1: 4756
+  NUM_2: 5297
+
+jobs:
+  ask_question:
+    runs-on: ubuntu-latest
+    env:
+      FIRST_NAME: "Thor Odensson"
+    
+    steps:
+      - name: Greeting
+        run: echo "Oh, nice to see you again, $FIRST_NAME"          
+
+      - name: Ask the question
+        run: |
+          echo "I have a question for you."
+          echo "What is the product of $NUM_1 and $NUM_2?"
+          echo "You have only 10 seconds to give the answer."
+          echo "Ready"
+          echo "Set"
+          echo "Go"
+
+  answer_question:
+    runs-on: ubuntu-latest
+    needs: ask_question
+    env:
+      PASSWORD: ${{secrets.MY_SUPER_SECRET_PASSWORD}}
+    steps:
+      - name: Give the answer
+        run: |
+          if [ -n "$PASSWORD" ]; then
+            echo "The answer is $(($NUM_1 * $NUM_2))"
+          else
+            echo "You'll not get the answer without SUPER SECRET PASSWORD"
+
