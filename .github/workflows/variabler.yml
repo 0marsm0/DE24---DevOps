@@ -1,0 +1,21 @@
+name: variables
+
+on:
+  workflow_dispatch:
+
+jobs:
+  greetings:
+    
+    runs-on: ubuntu-latest
+    env:
+      FIRST_NAME: "Thor Odensson"
+      GREETING_MSG: "Hello my dear friend"
+      QUESTION: "What are we going to do next?"
+
+    steps: 
+      - name: Greeting
+        run: |
+          echo $GREETING_MSG, $FIRST_NAME
+          echo I hope you're doing well with your new course!
+          echo $QUESTION
+          echo Workflow was run by $GITHUB_ACTOR in $GITHUB_REPOSITORY
