@@ -25,7 +25,7 @@ jobs:
         run: |
           echo "I have a question for you."
           echo "What is the product of $NUM_1 and $NUM_2?"
-          echo "You have only 5 seconds to give the answer."
+          echo "You have only 3 seconds to give the answer."
           echo "Ready"
           echo "Set"
           echo "Go"
@@ -39,10 +39,6 @@ jobs:
       - name: Give the answer
         run: |
           echo "Let's go!"
-          echo "5"
-          sleep 1
-          echo "4"
-          sleep 1
           echo "3"
           sleep 1
           echo "2"
@@ -55,4 +51,5 @@ jobs:
             echo "The answer is $(($NUM_1 * $NUM_2))"
           else
             echo "You'll not get the answer without SUPER SECRET PASSWORD"
+          fi
 
